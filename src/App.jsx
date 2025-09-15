@@ -1,22 +1,24 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React, { useState } from "react";
+import reactLogo from "./assets/react.svg";
+import viteLogo from "/vite.svg";
+import { Routes, Route, Navigate } from "react-router-dom";
+
+import "./App.css";
+
+import { HomePage } from "./pages/HomePage";
+import { DevLog } from "./pages/DevLog";
+import { Game } from "./pages/Game";
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
-    <>
-      <h1>
-        Lukas Czulak
-      </h1>
-      <p>
-        Hier entsteht eine ganz tolle Website. <br/>
-        Für mehr infos: info@lukasczulak.de
-      </p>
-    </>
-  )
+    <Routes>
+      <Route path="/home" element={<HomePage />} />
+      <Route path="/devlog" element={<DevLog />} />
+      <Route path="/game" element={<Game />} />
+      <Route path="/" element={<Navigate to="/home" />} />
+    </Routes>
+  );
 }
 
-export default App
+export default App;
